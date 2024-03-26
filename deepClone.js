@@ -11,7 +11,7 @@ const deepClone = target => {
         } else if (target.constructor === Date || target.constructor === RegExp) {
             result = target; // 日期或者正则对象，则直接赋值
         } else {
-            // 对象
+            // 对象时，遍历对象，往新对象中拷贝
             result = {};
             for(let i in target) {
                 result[i] = deepClone(target[i]);
