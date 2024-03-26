@@ -1,3 +1,13 @@
+/**
+ * 思路：
+ * 1. 判断当前对象的类型，根据类型来做不同处理
+ * 2. 如果 typeof 不为 object，则说明是基本数据类型
+ * 3. 为 object 时得判断不同类型情况：
+ * 4. 比如使用 Array.isArray 来判断是否为数组类型，且这是判断是否为数组的唯一方式
+ * 5. 是数组则 result 设置成一个新数组，遍历数组，往新数组中添加遍历的当前项
+ * 6. 是null设置为null，是Date或者是 RegExp 类型，则设置为要拷贝的对象
+ * 7. 如果都不符合则说明是 object 类型，则设置成一个新对象，遍历旧对象，将旧对象中元素往新对象中拷贝
+ */
 const deepClone = target => {
     let result;
     if (typeof target === 'object') {
